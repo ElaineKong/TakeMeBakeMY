@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://elainekong.github.io/TakeMeBake.github.io/sitemap.xml
+Sitemap: https://elainekong.github.io/TakeMeBakeMY/sitemap.xml
