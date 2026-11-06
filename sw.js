@@ -1,5 +1,5 @@
 const CACHE_PREFIX = "take-me-bake-";
-const CACHE = `${CACHE_PREFIX}v5`;
+const CACHE = `${CACHE_PREFIX}v6`;
 const ROOT = new URL("./", self.location).pathname;
 const APP = [ROOT, `${ROOT}manifest.webmanifest`, `${ROOT}take-me-bake-logo-transparent.png`];
 
@@ -11,6 +11,8 @@ self.addEventListener("activate", (event) =>
 );
 self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
+  // Partner price updates must be read from the network on each page visit.
+  if (event.request.cache === "no-store") return;
   // Never cache the HTML document. Vite filenames are content-hashed, so a
   // cached document can otherwise point to bundles removed by a later deploy.
   if (event.request.mode === "navigate") {
